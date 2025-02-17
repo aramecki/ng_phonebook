@@ -1,0 +1,15 @@
+.infoDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+p {
+    margin-right: 0.5rem;
+}
+
+#firstN {
+    scale: 1.1;
+    font-weight: 500;
+}

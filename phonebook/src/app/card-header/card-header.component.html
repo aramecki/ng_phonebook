@@ -1,0 +1,9 @@
+<div>
+    <img *ngIf="firstName" id="person" src="assets/images/person.png"/>
+
+    <div *ngIf="firstName" id="name">
+        <p class="title">{{firstName}}</p><p>{{lastName}}</p>
+        <i class="bi bi-pencil-fill" (click)="onEditClick()"></i>
+    </div>
+
+</div>

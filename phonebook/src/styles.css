@@ -1,0 +1,95 @@
+body {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-top: 3rem;
+}
+
+.bottomIcons {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    font-weight: 500;
+    bottom: 0;
+    font-size: 1.1rem;
+    color: #0059ff;
+    margin: 0;
+}
+
+#addContactIcn {
+    right: 10px;
+    text-align: right;
+}
+
+#iconsRow {
+    display: flex;
+}
+
+#deleteIcn {
+    cursor: pointer;
+    display: flex;
+    max-width: fit-content;
+    font-weight: 500;
+    right: 10px;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #0059ff;
+    margin: 0;
+}
+
+#closeIcn {
+    position: absolute;
+    cursor: pointer;
+    max-width: fit-content;
+    font-weight: 500;
+    right: 10px;
+    text-align: right;
+    font-size: 1.1rem;
+    color: #0059ff;
+    margin: 0;
+}
+
+#trashContainer {
+    margin-top: 8rem;
+}
+
+.title {
+    scale: 1.1;
+    font-weight: 500;
+}
+
+.mainSec {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0;
+    max-width: 100vw;
+    max-height: 70vh;
+    padding: 1rem;
+}
+
+.mainSec > div {
+    width: 25%;
+    height: 70vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainSec > div ul {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.mainSec > span {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    height: 70vh;
+    padding: 1rem;
+    position: relative;
+}

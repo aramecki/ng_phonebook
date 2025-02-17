@@ -1,0 +1,47 @@
+<main class="mainSec">
+    <div class="border rounded" *ngIf="!isCreatingContact && !isEditingContact">
+        <ul class="list-group">
+            <ng-container *ngIf="!isShowingTrash">
+                <app-contacts-list *ngFor="let contact of contacts" [id]="contact.id || 0" [firstName]="contact.firstName || ''" [lastName]="contact.lastName || ''" (isContactSelected)="getContactId($event); ShowContact()" />
+            </ng-container>
+            <ng-container *ngIf="isShowingTrash">
+                <app-contacts-list *ngFor="let contact of contacts" [id]="contact.id || 0" [firstName]="contact.firstName || ''" [lastName]="contact.lastName || ''" [isShowingTrash]="isShowingTrash" (isContactSelected)="getContactId($event)" (isContactPermDeleted)="refreshList()" (wantsToRestoreContact)="restoreContact($event)" />
+            </ng-container>
+        </ul>
+    </div>
+    <span class="border rounded">
+        <div id="iconsRow">
+            <div id="deleteIcn" *ngIf="isEditingContact">
+                <i (click)="deactivateContactCall()" class="bi bi-trash"></i>
+            </div>
+            <div id="closeIcn" *ngIf="isCreatingContact || isEditingContact || isShowingTrash">
+                <i (click)="onExit()" class="bi bi-x-circle"></i>
+            </div>
+        </div>
+        <div *ngIf="isShowingTrash" id="trashContainer">
+            <h4>Deleted contacts.</h4>
+            <p>Here you can chose to restore or permanently delete a contact.</p>
+        </div>
+        <div *ngIf="!isShowingContact && !isShowingTrash && !isCreatingContact && !isEditingContact" id="trashContainer">
+            <h4>Create a contact.</h4>
+            <p>Or select one from the list on the left.</p>
+        </div>
+        <app-new-card *ngIf="isCreatingContact" (isContactSaved)="refreshList()"/>
+        <app-new-card *ngIf="isEditingContact" (isContactSaved)="refreshList()" [isEditingContact]="true" [id]="contact.id || 0" [firstName]="contact.firstName || ''" [lastName]="contact.lastName || ''" [firstNumber]="contact.firstNumber || ''" [secondNumber]="contact.secondNumber || ''"
+         [firstAddress]="contact.firstAddress || ''" [secondAddress]="contact.secondAddress || ''" [email]="contact.email || ''" />
+
+        <app-full-card [firstName]="contact.firstName || ''" [lastName]="contact.lastName || ''" [firstNumber]="contact.firstNumber || ''" [secondNumber]="contact.secondNumber || ''"
+         [firstAddress]="contact.firstAddress || ''" [secondAddress]="contact.secondAddress || ''" [email]="contact.email || ''" *ngIf="!isCreatingContact && !isEditingContact && !isShowingTrash && isShowingContact && contact" (editContact)="viewContactEditing()" />
+
+         <ng-container *ngIf="!isCreatingContact && !isEditingContact && !isShowingTrash">
+            <div class="bottomIcons" id="addContactIcn">
+                <i class="bi bi-plus-lg"></i>
+                <p (click)="viewContactCreation()">Add new contact</p>
+            </div>
+            <div class="bottomIcons" id="showBinIcn">
+                <i class="bi bi-trash"></i>
+                <p (click)="viewTrash()">Show bin</p>
+            </div>
+        </ng-container>
+    </span>
+</main>

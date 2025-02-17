@@ -1,0 +1,2 @@
+<li class="list-group-item" [id]="id" [ngStyle]="isShowingTrash ? {} : {'cursor': 'pointer'}" (click)="onNameClick()">{{firstName}} {{lastName}}<i *ngIf="isShowingTrash" class="bi bi-trash" (click)="deleteContact()"></i><i *ngIf="isShowingTrash" class="bi bi-arrow-clockwise" (click)="restoreContact()"></i></li>
+

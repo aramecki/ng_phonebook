@@ -1,0 +1,8 @@
+i {
+    padding-left: 1rem;
+    color: #0059ff;
+}
+
+i:hover {
+    cursor: pointer;
+}
